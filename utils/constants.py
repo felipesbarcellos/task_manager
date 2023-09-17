@@ -1,0 +1,1 @@
+WINDOW_COLOR = "#05050c"
