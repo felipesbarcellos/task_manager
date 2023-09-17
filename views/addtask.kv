@@ -1,0 +1,98 @@
+#:import C kivy.utils.get_color_from_hex
+
+<Button>:
+    font_size: 32
+    background_normal: ''
+    background_color: (0,0,1,1)
+
+<Label>:
+    font_size: 32
+    background_color: (0.5,0,0.8,1)
+    canvas.before:
+        Color:
+            rgba: self.background_color
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    bold: False
+    color: C("#ffffff")
+    outline_color: (0,0,0)
+    outline_width: 2
+<TextInput>:
+    font_size: 32
+    background_color: (150/255,150/255,150/255,1)
+
+<TaskLayout>:
+    # canvas.before:
+        # Color:
+        #     rgba: (.9,.9,.9,1)
+        # Rectangle:
+        #     pos: self.pos
+        #     size: self.size
+        
+    BoxLayout:
+        size_hint: (None, None)
+        size: root.width, root.height
+        padding: 50
+        spacing: 10
+        #size_hint_y: .5
+        #size_hint_x: .25
+        orientation: "vertical"
+        BoxLayout:
+            orientation: "horizontal"
+            Label:
+                text: "Nome"
+
+                # font_size: 0
+            TextInput:
+                multiline: False
+        BoxLayout:
+            orientation: "horizontal"
+            Label:
+                text: "Descrição"
+                # font_size: 0
+            TextInput:
+                multiline: True
+        BoxLayout:
+            orientation: "horizontal"
+            Label:
+                text: "Data Início"
+                # font_size: 0
+            TextInput:
+                multiline: False
+                
+        BoxLayout:
+            orientation: "horizontal"
+            Label:
+                text: "Data Fim"
+                # font_size: 0
+            TextInput:
+                multiline: False
+        BoxLayout:
+            orientation: "horizontal"
+            Label:
+                text: "Prioridade"
+                # font_size: 0
+            TextInput:
+                multiline: False
+        BoxLayout:
+            orientation: "horizontal"
+            Label:
+                text: "Status"
+                # font_size: 0
+            TextInput:
+                multiline: False
+        BoxLayout:
+            orientation: "horizontal"
+            Label:
+                text: "Responsável"
+                # font_size: 0
+            TextInput:
+                multiline: False
+        Button:
+            text: "Enviar"
+            size_hint: (.2, 1)
+            pos_hint: {'center_x': .5}
+            # width: 200
+            # height: 50
+            
