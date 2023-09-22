@@ -1,0 +1,123 @@
+#:import C kivy.utils.get_color_from_hex
+
+<Label>:
+    outline_color: C("#000000")
+    outline_width: 1
+    bold: True
+    color: C("#eb96b6")
+
+<Campo>:
+    text: 'default_text'
+    BoxLayout:
+        orientation: "horizontal"
+        Label: 
+            text: root.text
+        TextInput:
+
+<SmoothButton>:
+    background_color: (0,0,0,0)
+    background_normal: ''
+    back_color: (23/255, 23/255, 23/255, 1)
+    border_radius: (18)
+    size_hint_x: .8
+    size_hint_y: None
+    height: 60
+    pos_hint: {'center_x': .5}
+    canvas.before:
+    
+        Color:
+            rgba: self.back_color            
+
+        RoundedRectangle:
+            size: self.size
+            pos: self.pos
+            radius: [32]
+
+<Menu>:
+    BoxLayout:
+        orientation: "vertical"
+        size_hint: (None, None)
+        size: root.width, root.height
+
+        BoxLayout:
+            Label: 
+                # color: C("#ffed00")
+                bold: True
+                text: "Tarefas\n+ Acessibilidade"
+                font_size: dp(30)
+                pos_hint: {"center_x":0.5}
+                halign: "center"
+
+        BoxLayout:
+            spacing: 20
+            padding: 0, 0, 0, 50
+            size_hint_y: None
+            height: root.height/100*30
+            orientation: "vertical"
+            pos_hint: {"center_x": .5}
+
+            SmoothButton:
+                text: "Adicionar Tarefa"
+                font_size: dp(20)
+                color: (0.45, 1, 0.45, 1)
+         
+            SmoothButton:
+                text: "Gerenciar Tarefas"
+                font_size: dp(22)
+                color: (0.45,0.45,1,1)
+
+            SmoothButton:
+                text: "Apoiar o projeto"
+                font_size: dp(22)
+                color: (1,1,0.15,1)
+
+        BoxLayout:
+            size_hint_y: None
+            height: root.height/100*8
+
+            Label:
+                text: "Desenvolvido por: Felipe Barcellos"
+                font_size: dp(16)
+                bold: False
+                outline_width: None
+                color: C("#ffffff")
+                canvas.before:
+
+                    Color:
+                        rgba: (0,0,0,.5)
+
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+
+<TaskLayout>:
+    size: root.width, root.height
+    BoxLayout:
+        orientation: "vertical"
+        #DEBUGGING
+        canvas.before:
+            Color:
+                rgba: (.2,.1,.2,1)
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        BoxLayout:
+            orientation: "vertical"
+            Campo:
+                text: "Nome"
+            Campo:
+                text: "Descrição"
+            Campo:
+                text: "Início da Tarefa"
+            Campo:
+                text: "Fim da Tarefa"
+            Campo:
+                text: "Prioridade"
+            Campo:
+                text: "Status"
+            Campo:
+                text: "Responsável"
+
+        SmoothButton:
+            text: "Adicionar"
+            padding: 50
